@@ -23,7 +23,7 @@ class CustomerController extends Controller
     {
         $filter = new CustomerQuery();
         $queryItems = $filter->transform($request); //['column','operator', 'value']
-        if (count($queryItems) == 0) {
+        if (count((array)$queryItems) == 0) {
             return new CustomerCollection(Customer::paginate());
 
         } else{
